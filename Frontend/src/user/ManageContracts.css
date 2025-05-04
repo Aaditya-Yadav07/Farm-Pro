@@ -1,0 +1,58 @@
+.contracts-container {
+    padding: 40px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+  }
+  
+  .dashboard-btn {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .heading {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+  
+  .filter-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 18px;
+  }
+  
+  #status-filter {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #888;
+    border-radius: 4px;
+  }
+  
+  .contracts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .contracts-table th,
+  .contracts-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .contracts-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+  }
+  

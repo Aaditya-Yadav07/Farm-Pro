@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Potato",
+        "title": "Harvest Month(2025-5), Delivery Month(2026-1), Payment before Harvest: Rs 4000 , Order Capacity:45-150(kg)",
+        "price": 15,
+        "category": "Vegetable",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu6iH4gcH68mwEG6fYZGQqdDaKlrTIRznQuA&s"
+    },
+    {
+        "id": 2,
+        "name": "Cabbage",
+        "title": "Harvest Month(2025-3), Delivery Month(2025-6), Payment before Harvest: Rs 42000 , Order Capacity:56-60(kg)",
+        "price": 50,
+        "category": "Vegetable",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvDOpjdVA6COQQaacaO-FfGbVmOa3bjX_da3nCmrsPEj1LBc8zEiPDC5WT0d-FCvMl9I&usqp=CAU"
+    },
+    {
+        "id": 3,
+        "name": "Onion",
+        "title": "Harvest Month(2025-5), Delivery Month(2025-9), Payment before Harvest: Rs 2000 , Order Capacity:25-50(kg)",
+        "price": 15,
+        "category": "Vegetable",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvya4BsD2Zu8anrWH5bSDglLkSXOcwods32kZR9R39hDu1qz-LpqWTjaCH76q13g3kSug&usqp=CAU"
+    },
+    {
+        "id": 4,
+        "name": "Music book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 20,
+        "category": "Music",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 5,
+        "name": "Novel ",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 30,
+        "category": "Novel",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 6,
+        "name": "Sports book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 40,
+        "category": "Sports",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 7,
+        "name": "Entertainment book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 50,
+        "category": "Entertainment",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 8,
+        "name": "Entertainment book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 50,
+        "category": "Entertainment",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 9,
+        "name": "Entertainment book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 50,
+        "category": "Entertainment",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    },
+    {
+        "id": 10,
+        "name": "Food book",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 100,
+        "category": "Food",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?ga=GA1.1.1240278266.1734632427&semt=ais_hybrid"
+    }
+]

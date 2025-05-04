@@ -1,0 +1,19 @@
+# Frontend
+Frontend/node_modules/
+Frontend/build/
+Frontend/.env
+
+# Backend
+Backend/node_modules/
+Backend/.env
+
+# IDE specific
+.idea/
+.vscode/
+
+# OS specific
+.DS_Store
+
+# Logs and temp files
+*.log
+tmp/

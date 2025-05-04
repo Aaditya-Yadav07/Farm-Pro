@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "name": "Bikaner Land",
+        "title": " 📍Bikaner, Rajasthan , 🕒 12 months , Land size=20 Acres",
+        "price": "15,000",
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv3k5-j_Fx55frfKekoIPDlDTPM58l7ucKSA&s"
+    },
+    {
+        "id": 2,
+        "name": "Jalna Land",
+        "title": "📍Jalna , Maharastra , 🕒 20 months  , Land size=30 Acres",
+        "price": "25,000",
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAq3rWFDxGLGpXbhIXsXDZK1vNHWnOVKB6YA&s"
+    },
+    {
+        "id": 3,
+        "name": "Meerut Land",
+        "title": "📍Meerut , UP , 🕒 = 30 months  , Land size=25 Acres",
+        "price": "20,000",
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVnFXAa7kW8afOLr9WaHhA9ITDh-3C_YMnA&s"
+    },
+    {
+        "id": 4,
+        "name": "Agra",
+        "title": "📍Agra, 🕒 12 months , Land size=20 Acres",
+        "price": 20500,
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGxcqyTCpdWyRjKCAZZvMmURcuNlGRrA_tUQ&s"
+    },
+    {
+        "id": 5,
+        "name": "Farrukhabad ",
+        "title": "📍Farrukhabad , 🕒 12 months , Land size=20 Acres",
+        "price": 30000,
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTdKM6DLmda_xQGA9tFlyrBAgdOeM-WLpiQ&s"
+    },
+    {
+        "id": 6,
+        "name": "Kanpur",
+        "title": "📍Kanpur , 🕒 12 months , Land size=20 Acres",
+        "price": 40000,
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA7cCfgY3q9R0d51qYIrO0wtlg_mAjOGMmzQ&s"
+    },
+    {
+        "id": 7,
+        "name": "Lucknow",
+        "title": "📍Lucknow , 🕒 12 months , Land size=20 Acres",
+        "price": 50000,
+        "category": "Farming",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZq6ZiFdxKFn3bd6b1rC0_YDPQP2hLDP7e0A&s"
+    }
+
+]
