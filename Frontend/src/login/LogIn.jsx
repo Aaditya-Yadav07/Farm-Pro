@@ -23,8 +23,9 @@ function LogIn() {
                 localStorage.setItem('authToken', token);
                 localStorage.setItem('user', JSON.stringify(user));
                 localStorage.setItem('userId', user._id);
-                if (user.userType === 'farmer') {
-                   
+                localStorage.setItem('userType', user.userType); // or 'buyer'
+
+                if (user.userType === 'farmer') {   
                     navigate('/farmer-dashboard');
                 } else if (user.userType === 'buyer') {
                     navigate('/corporate-dashboard');

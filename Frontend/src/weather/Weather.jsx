@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import Lognav from '../components/Lognav';
 
 function Weather() {
   const [city, setCity] = useState('Delhi');
@@ -55,7 +55,7 @@ function Weather() {
 
   return (
     <>
-      <Navbar />
+      <Lognav />
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 to-blue-300 p-6">
         {/* <Link
                   to="/"

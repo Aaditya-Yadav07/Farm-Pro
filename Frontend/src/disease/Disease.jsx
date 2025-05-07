@@ -99,9 +99,9 @@
 
 
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import Lognav from '../components/Lognav';
 
 function Disease() {
   const [file, setFile] = useState(null);
@@ -112,7 +112,7 @@ function Disease() {
 
   return (
     <>
-      <Navbar />
+      <Lognav />
       <div 
         className="min-h-screen flex items-center justify-center bg-cover bg-center p-4" 
         style={{ backgroundImage: "url('/crop-field.jpg')" }}

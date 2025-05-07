@@ -8,11 +8,13 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <>
-      <Navbar/>
-        <Banner/>
-        <AvailableCrops/>
-        <Landlease/>
-        <Footer/>  
+     <div class= "bg-slate-500">
+      <Navbar />
+      <Banner />
+      <AvailableCrops />
+      <Landlease />
+      <Footer />
+      </div>
     </>
   )
 }

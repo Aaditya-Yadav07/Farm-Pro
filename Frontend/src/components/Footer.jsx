@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div>
       <hr />
-      <footer className="footer footer-center bg-slate-500 text-cyan-100 text-lg rounded p-4">
+      <footer className="footer footer-center bg-slate-800 text-cyan-100 text-lg rounded p-4">
         <nav className="grid grid-flow-col gap-4">
           <a href='/' className="link link-hover">About us</a>
           <a href='/contact' className="link link-hover">Contact</a>

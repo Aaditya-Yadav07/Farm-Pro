@@ -216,9 +216,9 @@
 
 
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
+import Lognav from "../components/Lognav";
 
 const DemandPred = () => {
   const [formData, setFormData] = useState({
@@ -243,7 +243,7 @@ const DemandPred = () => {
 
   return (
     <>
-      <Navbar />
+      <Lognav />
       {/* Background Image */}
       <div
         className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center px-4 py-16"

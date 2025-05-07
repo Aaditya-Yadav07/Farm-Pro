@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -18,23 +18,12 @@ function Navbar() {
     };
   }, []);
 
-  const navItems = (
-    <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/disease">Crop Disease</Link></li>
-      <li><Link to="/demand">Crop Demand</Link></li>
-      <li><Link to="/weather">Weather Prediction</Link></li>
-      <li><Link to="/cost">Price Prediction</Link></li>
-    </>
-  );
-
   return (
-    <div
-      className={`max-w-screen-2xl bg-green-500 container mx-auto md:px-20 lg:px-32 xl:px-48 px-4 fixed top-0 left-0 right-0 z-50 ${
-        sticky ? "shadow-md bg-base-200 duration-200 transition-colors ease-in-out" : ""
-      }`}
+    <nav
+      className={` flex w-full h-24 max-w-screen-2xl bg-green-500 font-serif container mx-auto md:px-20 lg:px-32 xl:px-48 px-4 fixed top-0 left-0 right-0 z-50 ${sticky ? "shadow-md bg-base-200 duration-200 transition-colors ease-in-out" : ""
+        }`}
     >
-      <div className="navbar mb-2">
+      
         <div className="navbar-start flex items-center">
           <img className="h-12 md:h-18 mr-4"
             src="/farm-pro-logo.png"
@@ -50,8 +39,8 @@ function Navbar() {
             LogIn/SignUp
           </Link>
         </div>
-      </div>
-    </div>
+      
+    </nav>
   );
 }
 

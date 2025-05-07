@@ -41,11 +41,14 @@
 
 
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import Lognav from "../components/Lognav";
+import axios from "axios";
 
 
 const CorporateDashboard = () => {
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleManageContracts = () => {
@@ -53,6 +56,21 @@ const CorporateDashboard = () => {
     // TODO: Implement navigation logic
     navigate('/managecontract')
   };
+
+  useEffect(() => {
+    // Fetch user data when dashboard loads
+    const fetchUserData = async () => {
+      try {
+        const userId = localStorage.getItem('userId'); // Get id stored during login
+        const response = await axios.get(`http://localhost:5000/api/user/${userId}`);
+        setUser(response.data);
+      } catch (error) {
+        console.error('Error fetching user data', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleSignOut = () => {
     console.log("Signing out...");
@@ -66,33 +84,11 @@ const CorporateDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-[#0d2c45] text-white flex justify-between items-center px-10 py-4">
-        <div className="flex items-center gap-3">
-          <img src="/farm-pro-logo.png" alt="Corp-Farm Logo" className="h-10" />
-          <span className="text-2xl font-bold">Farm Pro</span>
-        </div>
-        <nav className="flex gap-6 items-center">
-          <Link to="/disease" className="hover:underline">Disease Prediction</Link>
-          <Link to="/demand" className="hover:underline">Crop Prediction</Link>
-          <Link to="/weather" className="hover:underline">Weather Prediction</Link>
-          <Link to="/cost" className="hover:underline">Cost Prediction</Link>
-          <span className="ml-4">💬</span>
-          <button
-            onClick={() => navigate('/corporatedashboard')}
-            className="text-2xl bg-transparent hover:text-yellow-500 focus:outline-none"
-            title="Go to Dashboard"
-          >
-            👤
-          </button>
-          <i className="fas fa-comments text-lg cursor-pointer"></i>
-          <i className="fas fa-user text-lg cursor-pointer"></i>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-white mt-24">
+      <Lognav />
 
       {/* Title */}
-      <h1 className="text-center text-3xl font-semibold mt-10">Corporate Dashboard</h1>
+      <h1 className="text-center text-3xl pt-24 font-semibold mt-10">Corporate Dashboard</h1>
 
       {/* Dashboard */}
       <div className="bg-[#6fb221] rounded-xl mt-10 p-10 w-4/5 mx-auto flex gap-6">
@@ -130,20 +126,18 @@ const CorporateDashboard = () => {
         <div className="flex-1 bg-white rounded-xl p-6">
           <div className="space-y-4">
             <div>
-              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Name</span>
+              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Name : </span>{user?.name}
+            </div>
+            <div>
+              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Email : </span>{user?.email}
               <span></span>
             </div>
             <div>
-              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Email</span>
-              <span></span>
-            </div>
-            <div>
-              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Role</span>
+              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Role : </span>{user?.userType}
               <span>Corporate</span>
             </div>
             <div>
-              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Status</span>
-              <span></span>
+              <span className="bg-[#6fb221] text-white px-2 py-1 rounded mr-2">Status : </span> Available 
             </div>
           </div>
           <div className="text-right mt-6">

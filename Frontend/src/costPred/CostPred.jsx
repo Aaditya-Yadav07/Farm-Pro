@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
+import Lognav from "../components/Lognav";
 
 function MarketPricePred() {
   const [crop, setCrop] = useState("");
@@ -28,7 +28,7 @@ function MarketPricePred() {
 
   return (
     <>
-      <Navbar />
+      <Lognav />
       <div className="min-h-screen flex flex-col items-center justify-start bg-yellow-100 px-6 pt-28 pb-6">
 
         
