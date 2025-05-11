@@ -41,6 +41,8 @@
 //     console.log(`Server running on port ${PORT}`);
 // });
 
+//-------------------------------
+
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -62,8 +64,6 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/uploads', express.static('uploads'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/user', userRoute);
-app.use('/uploads', express.static('uploads'));
-
 
 
 
@@ -71,11 +71,13 @@ app.use('/uploads', express.static('uploads'));
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/productRoutes');
 const cropRoutes = require('./routes/cropRoutes');
+const landRoutes = require('./routes/landRoutes');
 
 // ✅ Use routes after they are declared
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/crops', cropRoutes);
+app.use('/api/lands', landRoutes);
 
 // Debugging: Log the MongoDB URI to ensure it is loaded correctly
 console.log('MongoDB URI:', process.env.MONGODB_URI);

@@ -24,11 +24,13 @@ import ManageLand from './user/corporate/ManageLand';
 import Managecontract from './user/corporate/Managecontract';
 import AvailableCrops from './user/corporate/AvailableCrops';
 import AvailableLands from './user/AvailableLands';
+import LandDetail from './user/LandDetail';
 import Support from './components/Support';
 import ContactUs from './components/Contact';
 import MakeContractPage from './user/corporate/Makecontract';
+import DisputeGuidance from './user/DisputeGuidance';
 
-
+import Govpolicies from './user/Govpolicies';
 
 function App() {
   return (
@@ -62,6 +64,7 @@ function App() {
         <Route path="/manageproduct" element={<ManageProduct />} />
         <Route path="/createproduct" element={<CreateProduct />} />
         <Route path="/farmerdashboard" element={<FarmerDashboard />} />
+        <Route path="/disputeguidance" element={<DisputeGuidance />} />
         <Route path="/farmerdashboard" element={<EduContent />} />
         <Route path="/corporatedashboard" element={<CorporateDashboard />} />
         <Route path="/createland" element={<CreateLand />} />
@@ -70,7 +73,9 @@ function App() {
         <Route path="/availablecrops" element={<AvailableCrops />} />
         <Route path="/availablelands" element={<AvailableLands />} />
         <Route path="/make-contract" element={<MakeContractPage />} />
-
+        <Route path="/land-detail" element={<LandDetail />} />
+        <Route path="/educontent" element={<EduContent />} />
+        <Route path="/policies" element={<Govpolicies />} />
       </Routes>
       
     </>

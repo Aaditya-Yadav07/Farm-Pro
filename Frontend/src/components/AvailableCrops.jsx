@@ -44,7 +44,7 @@ function AvailableCrops() {
   return (
 
     <>
-
+      <div className="bg-gray-100 py-10">
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
         
           <div className="h-auto w-full flex flex-wrap flex-col items-center ">
@@ -64,6 +64,7 @@ function AvailableCrops() {
           </Slider>
         </div >
       </div >
+      </div>
     </>
 
   )

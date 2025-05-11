@@ -1,46 +1,3 @@
-// import React from 'react';
-
-// function CorporateDashboard() {
-//   return (
-//     <div className="min-h-screen bg-gray-50 p-6">
-//       <h1 className="text-3xl font-bold text-blue-800 mb-6">Corporate Buyer Dashboard</h1>
-
-//       <div className="grid md:grid-cols-3 gap-6">
-//         <div className="bg-white p-6 rounded-xl shadow-md">
-//           <h2 className="text-xl font-semibold text-gray-800">Contracts Signed</h2>
-//           <p className="text-3xl font-bold text-blue-600 mt-2">8</p>
-//         </div>
-//         <div className="bg-white p-6 rounded-xl shadow-md">
-//           <h2 className="text-xl font-semibold text-gray-800">Pending Deliveries</h2>
-//           <p className="text-3xl font-bold text-blue-600 mt-2">3</p>
-//         </div>
-//         <div className="bg-white p-6 rounded-xl shadow-md">
-//           <h2 className="text-xl font-semibold text-gray-800">Total Spend</h2>
-//           <p className="text-3xl font-bold text-blue-600 mt-2">₹1,10,000</p>
-//         </div>
-//       </div>
-
-//       <div className="bg-white mt-8 p-6 rounded-xl shadow-md">
-//         <h2 className="text-xl font-semibold text-gray-800 mb-4">Recent Purchases</h2>
-//         <ul className="space-y-2">
-//           <li className="flex justify-between border-b py-2">
-//             <span>Corn - 600kg</span>
-//             <span className="text-blue-600">Delivered</span>
-//           </li>
-//           <li className="flex justify-between border-b py-2">
-//             <span>Soybean - 400kg</span>
-//             <span className="text-yellow-600">In Transit</span>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default CorporateDashboard;
-
-
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Lognav from "../components/Lognav";
@@ -91,7 +48,7 @@ const CorporateDashboard = () => {
       <h1 className="text-center text-3xl pt-24 font-semibold mt-10">Corporate Dashboard</h1>
 
       {/* Dashboard */}
-      <div className="bg-[#6fb221] rounded-xl mt-10 p-10 w-4/5 mx-auto flex gap-6">
+      <div className="bg-orange-200 rounded-xl mt-10 p-10 w-4/5 mx-auto flex gap-6">
         {/* Button Section */}
         <div className="w-1/3 flex flex-col gap-4">
           <Link to="/availablecrops">

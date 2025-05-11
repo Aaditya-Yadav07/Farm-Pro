@@ -11,13 +11,13 @@ function Banner() {
                 <div className="w-full md:w-2/3 lg:w-1/2 order-2 md:order-1 mt-12 md:mt-32 mb-6 md:mb-10 bg-white bg-opacity-80 p-4 md:p-6 rounded-md shadow-md">
 
                     <div className="space-y-12">
-                        <h1 className="text-3xl text-gray-600 font-serif md:text-4xl font-bold">
+                        <h1 className="text-3xl text-black-600 font-serif md:text-4xl font-bold">
                             Your Favourite Source Of Smart Contracts{" "}
                             <span className="text-pink-500"> Every Season!!! </span>
                         </h1>
-                        <h2 className="text-2xl md:text-3xl font-serif text-blue-500 font-bold">What is Farm Pro?</h2>
+                        <h2 className="text-2xl md:text-3xl font-serif text-black-500 font-bold">What is Farm Pro?</h2>
 
-                        <p className="text-md text-gray-600 md:font-bold md:text-lg">
+                        <p className="text-md text-black-600 md:font-bold md:text-lg">
                             Farm Pro is an innovative contract farming platform designed to empower farmers and streamline the agricultural supply chain.
                             Farm Pro eliminates the need for intermediaries, directly connecting farmers with buyers, ensuring fair pricing and stable market access.
                             Farm Pro helps farmers identify and address issues early, boosting crop yield and quality.

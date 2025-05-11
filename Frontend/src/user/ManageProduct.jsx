@@ -119,19 +119,20 @@ const ManageProduct = () => {
       
       <div className="relative">
   {/* Top-right Dashboard button */}
-  <div className="absolute top-4 right-4 z-50">
+ 
+  </div>
+  {/* Page title */}
+  <h1 className="bg-[#0d2c45] text-white text-3xl font-semibold text-left mb-10 p-4 fixed top-0 left-0 right-0 z-50">
+    Manage Products  <div className="absolute top-4 right-4 z-50">
     <button 
       onClick={() => navigate('/farmerdashboard')} 
-      className="bg-yellow-400 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-500"
+      className="bg-yellow-400 text-black font-semibold py-0 px-2 rounded hover:bg-yellow-500"
     >
       👤 Dashboard
     </button>
   </div>
-  </div>
-  {/* Page title */}
-  <h1 className="bg-[#0d2c45] text-white text-3xl font-semibold text-left mb-10 p-4">
-    Manage Products
   </h1>
+  
        
       {/* Loading Spinner */}
       {loading && (
@@ -147,7 +148,7 @@ const ManageProduct = () => {
         </div>
       )}
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-20">
         <table className="min-w-full border border-gray-300 bg-white rounded shadow">
           <thead>
             <tr className="bg-gray-200 text-gray-700">

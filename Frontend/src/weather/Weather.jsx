@@ -56,14 +56,14 @@ function Weather() {
   return (
     <>
       <Lognav />
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 to-blue-300 p-6">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 to-blue-300 p-6 mt-20">
         {/* <Link
                   to="/"
                   className="absolute top-6 left-6 px-3 py-2 bg-blue-600 text-white rounded-full text-xs hover:bg-blue-500"
                 >
                   ← Back to Home
                 </Link> */}
-        <h1 className="text-4xl font-extrabold text-gray-800 mb-6">🌤 Weather Prediction</h1>
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-6">🌤 Weather Forecast</h1>
 
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="mb-6 flex space-x-3">

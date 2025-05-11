@@ -4,35 +4,35 @@ import { useNavigate,Link } from "react-router-dom";
 const EduContent = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen font-sans bg-white">
+    <div className="min-h-screen font-sans bg-white ">
 
       {/* Header */}
-      <header className="bg-[#112B3C] text-white flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-2">
-          <img src="/farm-pro-logo.png" alt="Farm Pro Logo" className="h-10" />
-          <h1 className="text-2xl font-bold">Farm Pro</h1>
-        </div>
-        <nav className="space-x-6">
-          <Link to="/disease" className="hover:underline">Disease Prediction</Link>
-          <Link to="/cost" className="hover:underline">Cost Prediction</Link>
-          <Link to="/weather" className="hover:underline">Weather Prediction</Link>
-          <Link to="/educational-content" className="hover:underline">Educational Content</Link>
-          <span className="ml-4">💬</span>
-          <button
-            onClick={() => navigate('/farmerdashboard')}
-            className="text-2xl bg-transparent hover:text-yellow-500 focus:outline-none"
-            title="Go to Dashboard"
-          >
-            👤
-          </button>
+      <header className="bg-[#112B3C] text-white px-6 py-4 fixed top-0 left-0 right-0 z-50 shadow-md">
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    {/* Logo and Title */}
+    <div className="flex items-center gap-3">
+      <img src="/farm-pro-logo.png" alt="Farm Pro Logo" className="h-10 w-auto" />
+      <h1 className="text-2xl font-bold">Farm Pro</h1>
+    </div>
 
+    {/* Navigation Title and Dashboard Button */}
+    <div className="flex items-center gap-4">
+      <h2 className="text-xl md:text-2xl font-semibold text-center">Educational Content for Farmers</h2>
+      <button
+        onClick={() => navigate('/farmerdashboard')}
+        className="text-2xl hover:text-yellow-400 focus:outline-none"
+        title="Go to Dashboard"
+      >
+        👤
+      </button>
+    </div>
+  </div>
+</header>
 
-        </nav>
-      </header>
 
       {/* Main Content */}
-      <main className="p-6">
-        <h2 className="text-3xl font-semibold text-center mb-6">Educational Content for Farmers</h2>
+      <main className="p-6 mt-24">
+        {/* <h2 className="text-3xl font-semibold text-center mb-6 mt-16">Educational Content for Farmers</h2> */}
 
         {/* Section 1: Farming Tips */}
         <div className="bg-green-600 rounded-xl p-6 text-white mb-6">

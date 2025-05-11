@@ -114,7 +114,7 @@ function Disease() {
     <>
       <Lognav />
       <div 
-        className="min-h-screen flex items-center justify-center bg-cover bg-center p-4" 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center p-4 mt-20" 
         style={{ backgroundImage: "url('/crop-field.jpg')" }}
       >
         {/* <Link

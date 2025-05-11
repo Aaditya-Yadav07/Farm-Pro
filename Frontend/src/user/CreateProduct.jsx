@@ -114,7 +114,7 @@ const CreateProduct = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <div className="bg-[#0d2c45] flex justify-between items-center mb-8 p-4 rounded">
+      <div className="bg-[#0d2c45] flex justify-between fixed top-0 left-0 right-0 z-50 items-center mb-8 p-4 rounded">
         <h1 className="text-2xl text-white font-bold">Create Product</h1>
         <Link to="/farmerdashboard">
           <button className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-500">
@@ -123,7 +123,7 @@ const CreateProduct = () => {
         </Link>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md max-w-xl mx-auto" encType="multipart/form-data">
+      <form onSubmit={handleSubmit} className="bg-white mt-20 p-6 rounded shadow-md max-w-xl mx-auto" encType="multipart/form-data">
         {/* Crop Name */}
         <div className="mb-4">
           <label className="block font-medium mb-1">Crop Name</label>
