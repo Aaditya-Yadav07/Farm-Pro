@@ -246,7 +246,7 @@ const DemandPred = () => {
       <Lognav />
       {/* Background Image */}
       <div
-        className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center px-4 py-16"
+        className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center px-4 py-16 mt-20"
         style={{ backgroundImage: "url('/public/cp_background.jpeg')" }}
       >
         {/* <Link

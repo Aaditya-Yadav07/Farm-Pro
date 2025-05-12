@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav
-      className={` flex w-full h-24 max-w-screen-2xl bg-green-500 font-serif container mx-auto md:px-20 lg:px-32 xl:px-48 px-4 fixed top-0 left-0 right-0 z-50 ${sticky ? "shadow-md bg-base-200 duration-200 transition-colors ease-in-out" : ""
+      className={` flex w-full h-24 max-w-screen-2xl bg-white-500 font-serif container mx-auto md:px-20 lg:px-32 xl:px-48 px-4 fixed top-0 left-0 right-0 z-50 ${sticky ? "shadow-md bg-base-200 duration-200 transition-colors ease-in-out" : ""
         }`}
     >
       
@@ -29,7 +29,7 @@ function Navbar() {
             src="/farm-pro-logo.png"
             alt="Farm Pro Logo"
           />
-          <Link to="/" className="text-2xl text-white md:text-2xl lg:text-3xl font-bold cursor-pointer">Farm Pro</Link>
+          <Link to="/" className="text-2xl text-black md:text-2xl lg:text-5xl font-bold cursor-pointer">Farm Pro</Link>
         </div>
         <div className="navbar-end space-x-3 lg:space-x-6 flex items-center">
           <Link

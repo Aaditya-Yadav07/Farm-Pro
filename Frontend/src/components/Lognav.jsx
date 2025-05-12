@@ -15,10 +15,10 @@ function Lognav() {
 
     const navItems = (
         <>
-            <li><Link to="/">Home</Link></li>
+            {/* <li><Link to="/">Home</Link></li> */}
             <li><Link to="/disease">Crop Disease</Link></li>
             <li><Link to="/demand">Crop Demand</Link></li>
-            <li><Link to="/weather">Weather Prediction</Link></li>
+            <li><Link to="/weather">Weather Forecast</Link></li>
             <li><Link to="/cost">Price Prediction</Link></li>
         </>
     );
@@ -36,13 +36,13 @@ function Lognav() {
     };
 
     return (
-        <header className={`flex justify-between items-center px-6 h-24 fixed top-0 left-0 right-0 z-50 ${sticky ? "bg-green-400" : "bg-green-500"}`}>
+        <header className={`flex justify-between items-center px-6 h-24 fixed top-0 left-0 right-0 z-50 bg-[#112B3C]`}>
             <div className="flex items-center gap-4">
                 <img src="/farm-pro-logo.png" alt="Farm Pro Logo" className="h-10" />
                 <h1 className="text-2xl font-bold text-white">Farm Pro</h1>
             </div>
             <nav>
-                <ul className=" gap-6 hidden md:flex text-white text-xl">
+                <ul className=" gap-6 hidden md:flex text-white text-xl font-bold">
                     {navItems}
                 </ul>
             </nav>

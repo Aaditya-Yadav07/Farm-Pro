@@ -31,12 +31,12 @@ const AvailableCrops = () => {
           {/* Header */}
           <div className="fixed top-0 left-0 right-0 bg-[#0d2c45] flex justify-between items-center px-10 py-5 z-50">
   <h1 className="text-white text-3xl font-semibold">Available Crops for Contract</h1>
-  <button
-    onClick={() => navigate('/corporatedashboard')}
-    className="bg-yellow-400 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-500"
+  <Link to="/corporatedashboard">
+  <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded"
   >
-    👤 Dashboard
+    <span role="img" aria-label="dashboard">👤</span> Dashboard
   </button>
+</Link>
 </div>
 
           {/* Grid View */}

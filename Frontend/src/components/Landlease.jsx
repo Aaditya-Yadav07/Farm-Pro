@@ -46,7 +46,7 @@ function landforlease() {
   return (
 
     <>
-
+      <div className="bg-gray-100 py-10">
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 py-8 ">
         <div className='"h-auto w-full flex flex-wrap flex-col items-center "'>
           <h1 className="font-semibold text-2xl md:text-4xl font-bold pb-2">Available lands for Lease</h1>
@@ -61,6 +61,7 @@ function landforlease() {
             ))}
           </Slider>
         </div>
+      </div>
       </div>
     </>
 
