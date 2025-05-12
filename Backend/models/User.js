@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     userType: { type: String, enum: ['farmer', 'buyer'], required: true },
     cin: { type: String },
     photo: { type: String }, // File path for photo
+    location : {type : String, required : true}
 });
 
 module.exports = mongoose.model('User', userSchema);

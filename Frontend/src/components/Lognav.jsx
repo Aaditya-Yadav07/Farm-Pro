@@ -36,7 +36,7 @@ function Lognav() {
     };
 
     return (
-        <header className={`flex justify-between items-center px-6 h-24 fixed top-0 left-0 right-0 z-50 ${sticky ? "shadow-md bg-base-200" : "bg-green-500"}`}>
+        <header className={`flex justify-between items-center px-6 h-24 fixed top-0 left-0 right-0 z-50 ${sticky ? "bg-green-400" : "bg-green-500"}`}>
             <div className="flex items-center gap-4">
                 <img src="/farm-pro-logo.png" alt="Farm Pro Logo" className="h-10" />
                 <h1 className="text-2xl font-bold text-white">Farm Pro</h1>

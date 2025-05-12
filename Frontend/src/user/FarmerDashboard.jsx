@@ -38,15 +38,15 @@ const FarmerDashboard = () => {
   }
 
   return (
-    <div className=" w-full flex font-sans bg-white">
+    <div className=" w-full font-sans bg-white">
 
       {/* Navbar */}
       <div>
-      <Lognav />
+        <Lognav />
       </div>
 
       {/* Dashboard Content */}
-      <main className="p-6 mt-36 w-full">
+      <main className="p-6 mt-36 mb-32 w-full">
         <h2 className="text-4xl text-slate-600 font-bold text-center mb-6">Farmer Dashboard</h2>
         <div className="bg-green-600 rounded-xl p-6 text-white grid grid-cols-1 md:grid-cols-4 gap-4">
 
@@ -117,9 +117,9 @@ const FarmerDashboard = () => {
           </div>
         </div>
 
-        <p className="text-red-600 mt-6 text-center font-semibold">❗ Note: Invalid and Unverified Farmers Cannot Add Land and Products</p>
-        <Footer />
+        <p className="text-red-600 mt-6 text-center font-semibold text-2xl">❗ Note: Invalid and Unverified Farmers Cannot Add Land and Products</p>
       </main>
+      <Footer />
     </div >
   );
 };

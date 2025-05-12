@@ -67,4 +67,4 @@ function landforlease() {
   )
 }
 
-export default landforlease
+export default landforlease;

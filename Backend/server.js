@@ -47,8 +47,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
-const userRoute = require('./routes/userRoutes')
-
+const userRoute = require('./routes/userRoutes');
 // Load environment variables from .env file
 dotenv.config();
 
@@ -71,12 +70,13 @@ app.use('/uploads', express.static('uploads'));
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/productRoutes');
 const cropRoutes = require('./routes/cropRoutes');
+const contractRoutes = require('./routes/contractRoutes');
 
 // ✅ Use routes after they are declared
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/crops', cropRoutes);
-
+app.use('/api/contracts', contractRoutes);
 // Debugging: Log the MongoDB URI to ensure it is loaded correctly
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 

@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <>
-     <div class= "bg-slate-500">
+     <div class= "bg-slate-300">
       <Navbar />
       <Banner />
       <AvailableCrops />
