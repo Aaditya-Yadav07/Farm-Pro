@@ -1,182 +1,138 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const MakeContractPage = () => {
-  const [farmerDetails, setFarmerDetails] = useState({
-    name: "",
-    address: "",
-    contact: "",
-    landLocation: "",
-    landSize: "",
-    crop: "",
-    ownershipStatus: "",
-    bankDetails: "",
+function MakeContractPage() {
+  const [formData, setFormData] = useState({
+    buyerName: '',
+    farmerName: '',
+    cropType: '',
+    quantity: '',
+    priceRange: '',
+    advancePayment: '',
+    terms: '',
+    startDate: '',
+    endDate: '',
   });
 
-  const [corporateDetails, setCorporateDetails] = useState({
-    companyName: "",
-    contactInfo: "",
-    responsiblePersonnel: "",
-    registrationDetails: "",
-    businessAddress: "",
-  });
+  const [permissionPDF, setPermissionPDF] = useState(null);
+  const [eSignature, setESignature] = useState(null);
+  const [message, setMessage] = useState('');
 
-  const [contractDetails, setContractDetails] = useState({
-    cropType: "",
-    quantity: "",
-    expectedYield: "",
-    paymentStructure: "",
-    paymentFrequency: "",
-    paymentMode: "",
-    deliveryLocation: "",
-    deliverySchedule: "",
-    qualityAssurance: "",
-  });
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
-  const [termsAndConditions, setTermsAndConditions] = useState({
-    startDate: "",
-    endDate: "",
-    farmerObligations: "",
-    corporateObligations: "",
-    forceMajeure: "",
-    terminationClause: "",
-  });
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    if (name === 'permissionPDF') {
+      setPermissionPDF(files[0]);
+    } else if (name === 'eSignature') {
+      setESignature(files[0]);
+    }
+  };
 
-  const handleChange = (e, stateSetter) => {
-    const { name, value } = e.target;
-    stateSetter((prevState) => ({ ...prevState, [name]: value }));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    for (const key in formData) {
+      data.append(key, formData[key]);
+    }
+
+    if (permissionPDF) data.append('permissionPDF', permissionPDF);
+    if (eSignature) data.append('eSignature', eSignature);
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/contracts', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      setMessage('Contract submitted successfully!');
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Submission failed');
+    }
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md">
-      <h1 className="text-2xl font-semibold text-center mb-6">Create Contract</h1>
-
-      {/* Farmer Details */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Farmer Details</h2>
-        <input
-          type="text"
-          name="name"
-          value={farmerDetails.name}
-          onChange={(e) => handleChange(e, setFarmerDetails)}
-          placeholder="Farmer Name"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        <input
-          type="text"
-          name="address"
-          value={farmerDetails.address}
-          onChange={(e) => handleChange(e, setFarmerDetails)}
-          placeholder="Farmer Address"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        <input
-          type="text"
-          name="contact"
-          value={farmerDetails.contact}
-          onChange={(e) => handleChange(e, setFarmerDetails)}
-          placeholder="Farmer Contact Information"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        {/* Add other fields like land location, size, etc. */}
-      </div>
-
-      {/* Corporate Details */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Corporate Details</h2>
-        <input
-          type="text"
-          name="companyName"
-          value={corporateDetails.companyName}
-          onChange={(e) => handleChange(e, setCorporateDetails)}
-          placeholder="Company Name"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        <input
-          type="text"
-          name="contactInfo"
-          value={corporateDetails.contactInfo}
-          onChange={(e) => handleChange(e, setCorporateDetails)}
-          placeholder="Corporate Contact Info"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        {/* Add other fields for corporate details */}
-      </div>
-
-      {/* Crop and Payment Details */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Crop and Payment Details</h2>
-        <input
-          type="text"
-          name="cropType"
-          value={contractDetails.cropType}
-          onChange={(e) => handleChange(e, setContractDetails)}
-          placeholder="Crop Type"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        <input
-          type="number"
-          name="quantity"
-          value={contractDetails.quantity}
-          onChange={(e) => handleChange(e, setContractDetails)}
-          placeholder="Quantity"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        {/* Add other crop details like payment frequency, mode, etc. */}
-      </div>
-
-      {/* Contract Terms and Conditions */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Contract Terms</h2>
-        <input
-          type="date"
-          name="startDate"
-          value={termsAndConditions.startDate}
-          onChange={(e) => handleChange(e, setTermsAndConditions)}
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        <input
-          type="date"
-          name="endDate"
-          value={termsAndConditions.endDate}
-          onChange={(e) => handleChange(e, setTermsAndConditions)}
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        {/* Add other terms and conditions fields */}
-      </div>
-
-      {/* File Upload */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Upload Documents</h2>
-        <input
-          type="file"
-          name="ownershipProof"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-        {/* Add other file inputs as needed */}
-      </div>
-
-      {/* E-Signature */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">E-Signature</h2>
-        <input
-          type="text"
-          name="signature"
-          placeholder="Enter your signature"
-          className="w-full p-2 mb-2 border rounded-md"
-        />
-      </div>
-
-      {/* Contract Preview and Submit */}
-      <div className="mb-6 flex justify-between items-center">
-        <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">
-          Preview Contract
-        </button>
-        <button className="bg-green-500 text-white p-3 rounded-md hover:bg-green-600">
+    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded">
+      <h2 className="text-2xl font-bold mb-4">Create Contract</h2>
+      {message && <div className="mb-4 text-center text-blue-600">{message}</div>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {[
+          { label: 'Buyer Name', name: 'buyerName' },
+          { label: 'Farmer Name', name: 'farmerName' },
+          { label: 'Crop Type', name: 'cropType' },
+          { label: 'Quantity (in Kg/Quintals)', name: 'quantity' },
+          { label: 'Price Range (e.g., ₹1000 - ₹1200)', name: 'priceRange' },
+          { label: 'Advance Payment (if any)', name: 'advancePayment' },
+          { label: 'Terms and Conditions', name: 'terms' },
+        ].map(({ label, name }) => (
+          <div key={name}>
+            <label className="block text-gray-700">{label}</label>
+            <input
+              type="text"
+              name={name}
+              value={formData[name]}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
+        ))}
+        <div>
+          <label className="block text-gray-700">Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">End Date</label>
+          <input
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+            required
+          />
+        </div>
+        
+        <div>
+          <label className="block text-gray-700">Permission PDF</label>
+          <input
+            type="file"
+            name="permissionPDF"
+            accept="application/pdf"
+            onChange={handleFileChange}
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">E-Signature (Image)</label>
+          <input
+            type="file"
+            name="eSignature"
+            accept="image/*"
+            onChange={handleFileChange}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        >
           Submit Contract
         </button>
-      </div>
+      </form>
     </div>
   );
-};
+}
 
 export default MakeContractPage;

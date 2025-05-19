@@ -1,16 +1,23 @@
 const mongoose = require('mongoose');
 
-const ContractSchema = new mongoose.Schema({
-    farmer : { type : mongoose.Schema.Types.ObjectId, ref : 'User'},
-    buyer : { type : mongoose.Schema.Types.ObjectId, ref : 'User'},
-    crop : String,
-    quantity : Number,
-    pricePerUnit : Number,
-    totalAmount : Number,
-    startDate : Date,
-    endDate : Date,
-    terms : String,
-    status : {type : String, enum:['pending', 'active', 'completed', 'rejected'], default: 'pending'}
+const contractSchema = new mongoose.Schema({
+  buyerName: String,
+  farmerName: String,
+  cropType: String,
+  quantity: Number,
+  priceRange: String,
+  advancePayment: String,
+  terms: String,
+  startDate: Date,
+  endDate: Date,
+  status: {
+    type: String,
+    enum: ['pending', 'accepted', 'rejected'],
+    default: 'pending'
+  },
+  permissionPDF: String,
+  eSignature: String
 });
 
-module.exports = mongoose.model('Contract', ContractSchema);
+
+module.exports = mongoose.model('Contract', contractSchema);
