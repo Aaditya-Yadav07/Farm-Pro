@@ -16,7 +16,12 @@ const contractSchema = new mongoose.Schema({
     default: 'pending'
   },
   permissionPDF: String,
-  eSignature: String
+  eSignature: String, 
+  suggestedEdits: {
+  priceRange: String,
+  terms: String
+}
+
 });
 
 

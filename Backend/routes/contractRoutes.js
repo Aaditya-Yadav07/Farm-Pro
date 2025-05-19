@@ -63,7 +63,9 @@ router.post(
         endDate,
         permissionPDF,
         eSignature,
-        status: 'pending'
+        status: 'pending',
+        suggestedEdits: { priceRange, terms }
+
       });
 
       await contract.save();
@@ -98,18 +100,92 @@ router.patch('/:id/status', async (req, res) => {
   }
 });
 
-router.put('/contracts/:id/suggest-edit', async (req, res) => {
+// Suggest Edit Route (corrected path)
+router.put('/:id/suggest-edit', async (req, res) => {
   try {
     const { priceRange, terms } = req.body;
-    const contract = await Contract.findByIdAndUpdate(req.params.id, {
-      suggestedEdits: { priceRange, terms }
-    }, { new: true });
+    const contract = await Contract.findByIdAndUpdate(
+      req.params.id,
+      { suggestedEdits: { priceRange, terms }, status: 'suggested' },
+      { new: true }
+    );
 
-    res.json(contract);
+    if (!contract) {
+      return res.status(404).json({ message: 'Contract not found' });
+    }
+
+    res.json({ message: 'Edit suggested successfully', contract });
   } catch (err) {
     res.status(500).json({ message: 'Error suggesting edit' });
   }
 });
+
+// PUT - Buyer reviews suggested edits
+router.put('/:id/review-edit', async (req, res) => {
+  const { approve } = req.body;
+
+  try {
+    const contract = await Contract.findById(req.params.id);
+    if (!contract || !contract.suggestedEdits) {
+      return res.status(404).json({ message: 'No suggested edits found' });
+    }
+
+    if (approve) {
+      // Apply the edits
+      contract.priceRange = contract.suggestedEdits.priceRange;
+      contract.terms = contract.suggestedEdits.terms;
+      contract.status = 'accepted';
+    } else {
+      contract.status = 'rejected'; // or 'edit_rejected'
+    }
+
+    contract.suggestedEdits = undefined; // Clear suggested edits
+    await contract.save();
+
+    res.json({ message: approve ? 'Edits approved' : 'Edits rejected', contract });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error during review' });
+  }
+});
+
+// Finalize suggested edit
+router.patch('/:id/finalize-edit', async (req, res) => {
+  try {
+    const { priceRange, terms } = req.body;
+    const updated = await Contract.findByIdAndUpdate(
+      req.params.id,
+      {
+        priceRange,
+        terms,
+        status: 'accepted',
+        $unset: { suggestedEdits: 1 }
+      },
+      { new: true }
+    );
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ message: 'Error finalizing edit' });
+  }
+});
+
+// Reject suggested edit
+router.patch('/:id/reject-edit', async (req, res) => {
+  try {
+    const updated = await Contract.findByIdAndUpdate(
+      req.params.id,
+      {
+        $unset: { suggestedEdits: 1 },
+        status: 'pending'
+      },
+      { new: true }
+    );
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ message: 'Error rejecting edit' });
+  }
+});
+
 
 
 module.exports = router;

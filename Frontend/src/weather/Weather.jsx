@@ -9,7 +9,7 @@ function Weather() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_KEY = '162dc01c4cb0cbadfc3519118a97ed0a'; // Replace with your Weatherstack API key
+  const API_KEY = '162dc01c4cb0cbadfc3519118a97ed0a'; 
 
   useEffect(() => {
     const savedCity = localStorage.getItem('city');
@@ -57,12 +57,7 @@ function Weather() {
     <>
       <Lognav />
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 to-blue-300 p-6 mt-20">
-        {/* <Link
-                  to="/"
-                  className="absolute top-6 left-6 px-3 py-2 bg-blue-600 text-white rounded-full text-xs hover:bg-blue-500"
-                >
-                  ← Back to Home
-                </Link> */}
+       
         <h1 className="text-4xl font-extrabold text-gray-800 mb-6">🌤 Weather Forecast</h1>
 
         {/* Search Bar */}

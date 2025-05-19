@@ -1,90 +1,95 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Managecontract = () => {
+function BuyerContractReview() {
   const [contracts, setContracts] = useState([]);
-  const [statusFilter, setStatusFilter] = useState('all');
 
   useEffect(() => {
-    const storedContracts = JSON.parse(localStorage.getItem('contractData')) || [];
-    setContracts(storedContracts);
+    axios.get('http://localhost:5000/api/contracts')
+      .then(res => setContracts(res.data))
+      .catch(err => console.error(err));
   }, []);
 
-  const filteredContracts =
-    statusFilter === 'all'
-      ? contracts
-      : contracts.filter((contract) => contract.status === statusFilter);
+  const handleApproveEdit = async (contractId, edits) => {
+    try {
+      await axios.patch(`http://localhost:5000/api/contracts/${contractId}/finalize-edit`, edits);
+      alert('Suggested edits approved and finalized!');
+      // Refresh contracts
+      const res = await axios.get('http://localhost:5000/api/contracts');
+      setContracts(res.data);
+    } catch (err) {
+      console.error('Approval failed:', err);
+    }
+  };
+
+  const handleRejectEdit = async (contractId) => {
+    try {
+      await axios.patch(`http://localhost:5000/api/contracts/${contractId}/reject-edit`);
+      alert('Suggested edits rejected.');
+      // Refresh contracts
+      const res = await axios.get('http://localhost:5000/api/contracts');
+      setContracts(res.data);
+    } catch (err) {
+      console.error('Rejection failed:', err);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-6 bg-blue-900 p-4 rounded">
-        <h1 className="text-xl font-bold text-white">Manage Crop Contracts</h1>
-        <Link to="/corporatedashboard">
-          <button className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-500">
-            👤 Dashboard
-          </button>
-        </Link>
-      </div>
-
-      {/* Filter */}
-      <div className="mb-4">
-        <label htmlFor="statusFilter" className="mr-2 font-medium text-gray-700">Filter by Status:</label>
-        <select
-          id="statusFilter"
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="p-2 border rounded"
-        >
-          <option value="all">All</option>
-          <option value="proposed">Proposed</option>
-          <option value="accepted">Accepted</option>
-          <option value="rejected">Rejected</option>
-          <option value="completed">Completed</option>
-        </select>
-      </div>
-
-      {/* Contracts Table */}
-      <div className="bg-white shadow rounded overflow-x-auto">
-        <table className="min-w-full text-sm text-left">
-          <thead className="bg-gray-200">
-            <tr>
-              <th className="p-3">Crop</th>
-              <th className="p-3">Duration</th>
-              <th className="p-3">Document</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Details</th>
-              <th className="p-3">Land</th>
+    <div className="p-6">
+      <h2 className="text-2xl font-bold mb-4">Manage Contract Suggestions</h2>
+      <table className="table-auto w-full border">
+        <thead>
+          <tr className="bg-gray-200">
+            <th>Buyer</th>
+            <th>Farmer</th>
+            <th>Crop</th>
+            <th>Qty</th>
+            <th>Current Price</th>
+            <th>Suggested Price</th>
+            <th>Current Terms</th>
+            <th>Suggested Terms</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contracts.map(contract => (
+            <tr key={contract._id} className="border-t">
+              <td>{contract.buyerName}</td>
+              <td>{contract.farmerName}</td>
+              <td>{contract.cropType}</td>
+              <td>{contract.quantity}</td>
+              <td>{contract.priceRange}</td>
+              <td>{contract.suggestedEdits?.priceRange || '-'}</td>
+              <td>{contract.terms}</td>
+              <td>{contract.suggestedEdits?.terms || '-'}</td>
+              <td className="capitalize">{contract.status}</td>
+              <td className="flex gap-2">
+                {contract.suggestedEdits ? (
+                  <>
+                    <button
+                      onClick={() => handleApproveEdit(contract._id, contract.suggestedEdits)}
+                      className="bg-green-500 text-white px-2 py-1 rounded"
+                    >
+                      Approve Edit
+                    </button>
+                    <button
+                      onClick={() => handleRejectEdit(contract._id)}
+                      className="bg-red-500 text-white px-2 py-1 rounded"
+                    >
+                      Reject Edit
+                    </button>
+                  </>
+                ) : (
+                  <span className="text-gray-400">No Edit</span>
+                )}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {filteredContracts.length === 0 ? (
-              <tr>
-                <td colSpan="6" className="text-center p-4 text-gray-500">No contracts found.</td>
-              </tr>
-            ) : (
-              filteredContracts.map((contract, index) => (
-                <tr key={index} className="border-b">
-                  <td className="p-3">{contract.product || 'N/A'}</td>
-                  <td className="p-3">{contract.duration || 'N/A'}</td>
-                  <td className="p-3">
-                    {contract.document ? (
-                      <a href={contract.document} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-                        View
-                      </a>
-                    ) : 'N/A'}
-                  </td>
-                  <td className="p-3 capitalize">{contract.status || 'N/A'}</td>
-                  <td className="p-3">{contract.contractDetails || 'N/A'}</td>
-                  <td className="p-3">{contract.land || 'N/A'}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-};
+}
 
-export default Managecontract;
+export default BuyerContractReview;
