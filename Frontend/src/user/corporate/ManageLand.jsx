@@ -99,12 +99,7 @@ const ManageLand = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-50">
-      {/* Header and Navigation */}
-      {/* <div className="relative ">
-        <div className="absolute top-4 right-4 z-50 ">
-          <button onClick={() => navigate('/farmerdashboard')} className="bg-yellow-400 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-500">👤 Dashboard</button>
-        </div>
-      </div> */}
+     
 
       <h1 className="bg-[#0d2c45] text-white text-3xl font-semibold text-left mb-10  fixed top-0 left-0 right-0 z-50 p-4">Manage Lands </h1>
 

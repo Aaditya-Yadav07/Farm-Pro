@@ -6,10 +6,6 @@ const landSchema = new mongoose.Schema({
   location: String,
   soilType: String,
   price: String,
-  // status: {
-  //   type: String,
-  //   default: 'Available'
-  // },
   ownerName: String,
   owneraddress:String,
   mobile: String,

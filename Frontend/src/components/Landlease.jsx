@@ -49,7 +49,7 @@ function landforlease() {
       <div className="bg-gray-100 py-10">
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 py-8 ">
         <div className='"h-auto w-full flex flex-wrap flex-col items-center "'>
-          <h1 className="font-semibold text-2xl md:text-4xl font-bold pb-2">Available lands for Lease</h1>
+          <h1 className="text-2xl md:text-4xl font-bold pb-2">Available lands for Lease</h1>
           <div className="w-48 h-1 border-b-[4px] border-yellow-500 rounded-2xl mt-2 md:mt-2 mb-12"></div>
           <p className='text-xl items-center font-bold'>Farm Pro offers a reliable and flexible solution for farmers looking to lease land for contract farming. By connecting landowners with experienced farmers, we ensure that quality agricultural land is accessible for those interested in expanding their farming operations. With Farm Pro, you can easily find fertile land for lease, tailored to the specific needs of contract farming.</p>
         </div>
@@ -68,4 +68,4 @@ function landforlease() {
   )
 }
 
-export default landforlease
+export default landforlease;

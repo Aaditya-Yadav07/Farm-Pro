@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // import React, { useState } from 'react';
 // import Footer from '../components/Footer';
@@ -51,6 +52,8 @@
 
 // export default Disease;
 
+=======
+>>>>>>> 6213603f5535884b9bfa59b4639c8b53e20beafc
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import Lognav from '../components/Lognav';
