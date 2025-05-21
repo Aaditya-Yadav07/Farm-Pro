@@ -17,7 +17,6 @@ function Lognav() {
         <>
             {/* <li><Link to="/">Home</Link></li> */}
             <li><Link to="/disease">Crop Disease</Link></li>
-            <li><Link to="/demand">Crop Demand</Link></li>
             <li><Link to="/weather">Weather Forecast</Link></li>
             <li><Link to="/cost">Price Prediction</Link></li>
         </>
