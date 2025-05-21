@@ -2,7 +2,6 @@ import React from 'react';
 import Home from './home/Home';
 import Disease from './disease/Disease';
 import CostPred from './costPred/CostPred';
-import DemandPred from './demand/DemandPred';
 import Weather from './weather/Weather';
 import LogIn from './login/LogIn';
 import SignUp from './signup/SignUp';
@@ -39,7 +38,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/disease" element={<Disease />} />
-        <Route path="/demand" element={<DemandPred />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/cost" element={<CostPred />} />
         <Route path='/login' element={<LogIn />} />
